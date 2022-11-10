@@ -27,7 +27,7 @@ public class ArticleController {
 
     @GetMapping("/new")
     public String createPage() {
-        return "/new";
+        return "new";
     }
 
     @PostMapping("")
@@ -42,9 +42,9 @@ public class ArticleController {
 
         if (optionalArticle.isPresent()) {
             model.addAttribute("article", optionalArticle.get());
-            return "/show";
+            return "show";
         } else {
-            return "/error";
+            return "error";
         }
     }
 
@@ -52,7 +52,7 @@ public class ArticleController {
     public String listPage(Model model) {
         List<Article> articles = articleRepository.findAll();
         model.addAttribute("articles", articles);
-        return "/list";
+        return "list";
     }
 
     @GetMapping("{id}/edit")
@@ -61,10 +61,10 @@ public class ArticleController {
 
         if (optionalArticle.isPresent()) {
             model.addAttribute("article", optionalArticle.get());
-            return "/edit";
+            return "edit";
         } else {
             model.addAttribute("message", String.format("There is no article %d,", id));
-            return "/error";
+            return "error";
         }
     }
 
