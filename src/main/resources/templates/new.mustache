@@ -1,7 +1,13 @@
 {{>layouts/header}}
-    <form action="/articles/" method="post">
-        <input type="text" name="title"/>
-        <input type="text" name="content"/>
-        <input type="submit"/>
+    <form action="/articles/" class="container" method="post">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" placeholder="Title is required." id="title">
+        </div>
+        <div class="mb-3">
+            <label for="content">Content</label>
+            <textarea class="form-control" placeholder="Enter your content here." id="content" style="height: 200px"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 {{>layouts/footer}}
