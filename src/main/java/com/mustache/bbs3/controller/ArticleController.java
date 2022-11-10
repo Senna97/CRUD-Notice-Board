@@ -32,7 +32,7 @@ public class ArticleController {
     @PostMapping("")
     public String createArticle(ArticleDto articleDto) {
         Article savedArticle = articleRepository.save(articleDto.toEntity());
-        return String.format("id: %d", savedArticle.getId());
+        return String.format("redirect:/articles/%d", savedArticle.getId());
     }
 
     @GetMapping("/{id}")
