@@ -68,7 +68,7 @@ public class ArticleController {
         }
     }
 
-    @GetMapping("/{id}/update")
+    @PostMapping("/{id}/update")
     public String update(@PathVariable Long id, ArticleDto articleDto, Model model) {
         log.info("title: {} content: {}", articleDto.getTitle(), articleDto.getContent());
         Article article = articleRepository.save(articleDto.toEntity());
