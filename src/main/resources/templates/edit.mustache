@@ -1,3 +1,4 @@
+{{>layouts/header}}
 {{#article}}
     <form action="/articles/{{id}}/update" method="post">
         <input type="hidden" name="id" value="{{id}}">
@@ -8,3 +9,4 @@
     <a href="/articles/{{id}}">No. {{id}}</a>
     <a href="/articles/list">List</a>
 {{/article}}
+{{>layouts/footer}}
