@@ -54,4 +54,17 @@ public class ArticleController {
         model.addAttribute("articles", articles);
         return "/list";
     }
+
+    @GetMapping("{id}/edit")
+    public String edit(@PathVariable Long id, Model model) {
+        Optional<Article> optionalArticle = articleRepository.findById(id);
+
+        if (optionalArticle.isPresent()) {
+            model.addAttribute("article", optionalArticle.get());
+            return "/edit";
+        } else {
+            model.addAttribute("message", String.format("There is no article %d,", id));
+            return "/error";
+        }
+    }
 }
